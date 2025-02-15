@@ -1,0 +1,275 @@
+/* Resetear algunos márgenes y padding para un diseño limpio */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilo para la sección de portada */
+.portada {
+    width: 100%;
+    height: 800px;  /* Ajusta la altura según lo que desees */
+    background-image: url('portada.jpg');
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 20px;  /* Espacio entre la portada y el contenido */
+    display: flex;
+    justify-content: center;  /* Centra el contenido */
+    align-items: center;  /* Centra la imagen */
+}
+
+/* Fondo y centrado del contenedor principal */
+body {
+    font-family: 'Century Gothic', sans-serif;
+    background-color: #f4f7fa;
+    display: flex;
+    justify-content: center;  /* Centra todo el contenido */
+    align-items: flex-start;
+    min-height: 100vh;
+    padding: 0px;
+    margin: 0;
+}
+
+/* Contenedor principal */
+.container {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+
+/* Logo */
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.logo-container {
+    background-color: #009A4D; /* Color de fondo verde */
+    padding: 15px;
+    display: flex;
+    margin-bottom: 20px;
+    border-radius: 15px;
+    width: 100%;
+    max-width: 1500px;
+    box-sizing: border-box;
+}
+
+.logo-container img {
+    max-width: 120px;
+    height: auto;
+}
+
+/* Título principal */
+h2 {
+    font-size: 20px;
+    color: #343a40;
+    margin-bottom: 20px;
+    font-weight: 700;
+    text-align: center;
+}
+
+/* Formulario - Establecer estilo de la cuadrícula */
+form {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Dos columnas para los campos */
+    gap: 15px;
+    justify-items: stretch; 
+    align-items: center; /* Alinea los elementos al centro */
+    padding-bottom: 50px; /* Añadir espacio para el botón */
+}
+
+/* Alineación y estilo de los labels */
+form label {
+    font-size: 14px;
+    color: #6c757d;
+    font-weight: 600;
+    text-align: left;
+}
+
+/* Estilo de los inputs, selects y textarea */
+input, select, textarea {
+    width: 100%;
+    padding: 14px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    font-size: 15px;
+    color: #495057;
+    transition: all 0.3s ease;
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: #007bff;
+    outline: none;
+    background-color: #fff;
+}
+
+/* Campo de descripción más grande */
+textarea {
+    width: 100%;
+    height: 120px;
+    padding: 14px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    font-size: 15px;
+    color: #495057;
+    font-family: 'Century Gothic', sans-serif; /* Usa la misma fuente que el formulario */
+    resize: vertical; /* Permite redimensionar solo verticalmente */
+    transition: all 0.3s ease;
+}
+
+textarea:focus {
+    border-color: #007bff;
+    outline: none;
+    background-color: #fff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Resalta el borde al hacer clic */
+}
+
+
+/* Estilo del botón de envío */
+button {
+    background-color: gray;
+    color: white;
+    padding: 12px 80px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;  /* Ajusta el ancho para que encaje en el formulario */
+    grid-column: span 2;  /* Ocupa dos columnas en el formulario */
+    justify-self: center;  /* Lo centra dentro del grid */
+    margin-top: 20px; /* Espacio superior para separarlo de los campos */
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+button:focus {
+    outline: none;
+}
+
+/* Ajuste para dispositivos pequeños */
+@media (max-width: 768px) {
+    form {
+        grid-template-columns: 1fr; /* Una sola columna en dispositivos pequeños */
+    }
+
+    .container {
+        padding: 20px;
+    }
+
+    button {
+        width: 100%; /* El botón ocupará todo el ancho en pantallas pequeñas */
+        position: relative; /* Para que no se posicione absolutamente */
+        left: 0; /* Alineado al lado izquierdo */
+        transform: none; /* Sin transformación */
+    }
+}
+/* Estilos del modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    min-width: 300px;
+}
+
+/* Animación de carga (círculo girando) */
+.loading-spinner {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-top: 4px solid #009A4D;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite;
+    display: inline-block;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Asegura que todos los inputs se alineen de la misma forma */
+    width: 100%; /* Mantiene el mismo ancho que los demás campos */
+}
+
+#erpOptions {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Mantiene la alineación en dos columnas */
+    gap: 10px;
+}
+
+
+#erpOptions {
+   width: 80%; /* Reduce el ancho al 80% del contenedor */
+    max-width: 300px; /* Limita el ancho máximo */ /* Ocupa el espacio de dos columnas */
+}
+
+/* Ajuste para el campo adicional cuando se selecciona ERP */
+.erp-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Mantiene 2 columnas */
+    gap: 8px;
+    align-items: center; /* Asegura alineación con otros campos */
+    padding-left: 4px; /* Alineación con otros inputs */
+}
+
+.erp-container label {
+    font-size: 14px;
+    color: #495057;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+}
+
+.erp-container input {
+    transform: scale(1.1); /* Ajuste leve del tamaño */
+    margin-right: 8px; /* Espacio entre el checkbox y el texto */
+}
+
+.checkbox-group {
+    display: flex;
+    flex-direction: column; /* Alinea los elementos en columna */
+    grid-column: span 2; /* Hace que ocupe ambas columnas para alinearse */
+}
+.checkbox-group label {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* Alinea los checkboxes a la derecha */
+    gap: 10px;
+}
+.checkbox-group input[type="checkbox"] {
+    margin-left: auto; /* Empuja los checkboxes a la derecha */
+    transform: scale(1.2); /* Hace que los checkboxes sean más visibles */
+}
